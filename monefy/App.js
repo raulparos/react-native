@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Login from './src/components/login/Login';
+import Login from './src/components/user/Login';
+import Logout from './src/components/user/Logout';
 import { StackNavigator } from 'react-navigation';
 
 const Navigation = StackNavigator(
     {
-        Home: {screen: Login}
+        Home: {screen: Login},
+        Logout: {screen: Logout}
     },
     {
         headerMode: 'float',
