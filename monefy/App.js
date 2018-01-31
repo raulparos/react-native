@@ -4,12 +4,14 @@ import Logout from './src/components/user/Logout';
 import { StackNavigator } from 'react-navigation';
 import Login from './src/components/user/Login';
 import Finances from './src/components/finances/Finances';
+import Transaction from './src/components/finances/Transaction';
 
 const Navigation = StackNavigator(
     {
         Home: {screen: Login},
         Finances: {screen: Finances},
-        Logout: {screen: Logout}
+        Logout: {screen: Logout},
+        Transaction : {screen: Transaction}
     },
     {
         headerMode: 'screen',
