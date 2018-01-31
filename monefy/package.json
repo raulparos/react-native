@@ -22,7 +22,10 @@
     "expo": "^25.0.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
-    "react-native-dropdownalert": "^3.1.2",
-    "react-navigation": "^1.0.0-beta.23"
+    "react-native-chart": "^1.0.8-beta",
+    "react-native-svg": "^5.4.1",
+    "react-native-svg-charts": "^2.2.1",
+    "react-navigation": "^1.0.0-beta.23",
+    "react-native-dropdownalert": "^3.1.2"
   }
 }

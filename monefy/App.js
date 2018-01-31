@@ -1,17 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Logout from './src/components/user/Logout';
 import { StackNavigator } from 'react-navigation';
 import Login from './src/components/user/Login';
 import Finances from './src/components/finances/Finances';
+import Chart from './src/components/finances/Chart';
 import Transaction from './src/components/finances/Transaction';
 
 const Navigation = StackNavigator(
     {
         Home: {screen: Login},
         Finances: {screen: Finances},
-        Logout: {screen: Logout},
-        Transaction : {screen: Transaction}
+        Transaction: {screen: Transaction},
+        Chart: {screen: Chart},
     },
     {
         headerMode: 'screen',

@@ -1,7 +1,5 @@
 import React from 'react';
-import { View, Button, TextInput, Text } from 'react-native';
-import { AsyncStorage } from 'react-native';
-import Logout from './Logout';
+import { StyleSheet, View, Button, TextInput, Text } from 'react-native';
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -13,7 +11,9 @@ export default class Login extends React.Component {
     }
 
     static navigationOptions = {
-        title: 'Login'
+        title: 'Login',
+        headerStyle: {backgroundColor: '#04BEA6'},
+        titleStyle: {color: '#fff'}
     };
 
     login = () => {
@@ -36,9 +36,7 @@ export default class Login extends React.Component {
     saveStorageInformation = (response) => {
         if (response.successful) {
             try {
-                //@todo await async function
-                AsyncStorage.setItem('@User:username', response.data.name);
-                this.props.navigation.navigate('Logout');
+                this.props.navigation.navigate('Finances');
             } catch (error) {
             }
         }
@@ -58,6 +56,7 @@ export default class Login extends React.Component {
                     placeholder={'Please enter your password'}
                 />
                 <Button
+                    style={styles.button}
                     onPress={this.login}
                     title="Login"
                 />
@@ -65,3 +64,9 @@ export default class Login extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create ({
+    button: {
+        backgroundColor: '#04BEA6',
+    }
+});

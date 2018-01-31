@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Button, TextInput, Picker } from 'react-native';
+import { StyleSheet, View, Button, TextInput, Picker } from 'react-native';
 import DropdownAlert from 'react-native-dropdownalert';
+import NavigationBar from "../navigation/NavigationBar";
 
 export default class Transaction extends React.Component {
     constructor(props) {
@@ -12,6 +13,12 @@ export default class Transaction extends React.Component {
             type : 0
         };
     }
+
+    static navigationOptions = {
+        title: 'Add Finance',
+        headerStyle: {backgroundColor: '#04BEA6'},
+        titleStyle: {color: '#fff'}
+    };
 
     refreshState = () => {
         this.setState({amount : ''});
@@ -47,10 +54,11 @@ export default class Transaction extends React.Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <DropdownAlert ref={ref => this.dropdown = ref}/>
+                <NavigationBar navigation={this.props.navigation}/>
                 <TextInput
-                    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                    style={{height: 40, marginTop: 60, borderColor: 'gray', borderWidth: 1}}
                     onChangeText={(text) => this.setState({amount: text})}
                     value = {this.state.amount}
                     placeholder={'Amount'}
@@ -82,3 +90,21 @@ export default class Transaction extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    navbar: {
+        height: 40,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        maxHeight: 60,
+    },
+    button: {
+        backgroundColor: '#04BEA6',
+        height: 40,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingTop: 5,
+        margin: 10,
+    }
+});

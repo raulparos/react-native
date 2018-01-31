@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ListView } from 'react-native';
+import NavigationBar from '../navigation/NavigationBar';
 
 export default class Login extends React.Component {
     static navigationOptions = {
@@ -8,8 +9,8 @@ export default class Login extends React.Component {
         titleStyle: {color: '#fff'}
     };
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => true});
         this.state = {
             dataSource: ds.cloneWithRows(['row 1', 'row 2']),
@@ -51,6 +52,7 @@ export default class Login extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <NavigationBar navigation={this.props.navigation}/>
                 <Text style={styles.titleText}>
                     {'Finances transaction history \n\n'}
                 </Text>
@@ -67,6 +69,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        padding: 10,
     },
     titleText: {
         color: '#ccc',
